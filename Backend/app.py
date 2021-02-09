@@ -1,24 +1,26 @@
-from flask import Flask, jsonify, request, session
+from flask import Flask, jsonify, request, Blueprint, session
 from pymongo import MongoClient
-from bson.json_util import dumps
-from bson import json_util
 from development import SECRET_KEY, ALGORITHM
+from bson.json_util import dumps
+from bson import json_util, ObjectId
 import jwt
 import bcrypt
+from flask_restx import Resource, Api, Namespace, fields, reqparse
 from flask_cors import CORS
-
 from detection import get_img
-
+import base64
 
 app = Flask(__name__)
+api = Api(app)  # Flask 객체에 Api 객체 등록
 app.secret_key=SECRET_KEY
 CORS(app)
+parser = reqparse.RequestParser()
 
-#mongo = MongoClient('mongo_db', 27017)
 mongo = MongoClient('localhost', 27017)
-db = mongo['mandoo']
-quizzes = db.quizzes
-users = db.users
+
+db = mongo.Mandoo #Mandoo database
+user = db.user   #user table
+quiz = db.quiz   #quiz table
 
 def get_user_id(request):
     token = request.headers.get('Authorization')
@@ -28,74 +30,84 @@ def get_user_id(request):
 
     return payload['id']
 
-@app.route('/', methods=['GET'])
-def home():
-    return 'Hello, World!'
+@api.route('/hello')
+class HelloWorld(Resource):
+    @api.expect(parser)
+    def get(self):  
+        return "hello"
 
-@app.route('/adduser')
-def adduser():
-    user = {
-        "id" : "yyyyyyyyggy",
-        "name" : "yoonjae",
-        "password": "yoonjae",
-        "questions": []
-    }
-    users.insert_one(user)
-    session['id'] = 'yoonjae'
-    user_result = users.find({"_id":"yoonjae"})
-    result = dumps(user_result, default=json_util.default)
-    return jsonify(result=result)
 
-@app.route('/quizupload', methods=['POST'])
-def upload():
-    """
-    id = get_user_id(request)
-    if id is None:
+@api.route('/signup')
+class Signup(Resource):
+    @api.expect(parser)
+    def post(self):
+        #회원가입에서 중복 아이디 확인하는 기능은 아직 없음
+        new_user = request.json
+
+        new_user['password'] = bcrypt.hashpw(new_user['password'].encode('utf-8'), bcrypt.gensalt()) # 비밀번호 해싱
+        
+        user_info = {
+            "id": new_user["id"],
+            "name": new_user["name"],
+            "password": new_user["password"],
+        }
+        user_id = user.insert_one(user_info).inserted_id
+        print(user_id)
+        print(user_info)
         return jsonify({
+            "status": 200,
+            "success": True,
+            "message" : "회원가입 성공",
+            "data" : { 
+                "id" : new_user["id"],
+                "name" : new_user["name"]
+            }
+        })
+
+@api.route('/login')
+class login(Resource):
+    @api.expect(parser)
+    def post(self):  
+        login_user = request.json
+        id = login_user['id']
+        password = login_user['password']
+
+        result = user.find_one({ "id" : id })   #user table에서 일치하는 아이디 검색
+    
+    
+        if result is None:  #일치하는 아이디가 없음
+            return jsonify({
+                "status": 401,
+                "success": False,
+                "message": "해당 아이디가 없습니다"
+            }) 
+
+        if result and bcrypt.checkpw(password.encode('utf-8'), result['password'].decode("utf8").encode('utf-8')):
+            id = result['id']
+            payload = {
+                'id' : id
+            }
+            token = jwt.encode(payload, SECRET_KEY, ALGORITHM)  #토큰 생성(인코딩)
+            #token = jwt.decode(token, SECRET_KEY, ALGORITHM)   #토큰 디코팅
+
+            session['id'] = login_user['id']
+           
+            return jsonify({
+            "status": 200,
+            "success": True,
+            "message" : "로그인 성공",
+            "data" : { 
+                "accessToken": token,
+                "user_id" : login_user['id']
+                }
+            })
+        else:
+            return jsonify({
             "status": 401,
             "success": False,
-            "message": "로그인 필요"
-        })"""
-    if request.method == 'POST':
-        img = request.json['image']
-        title, choices, answer, script, image = get_img(img)
-        user = session.get('id')
-        quiz = {
-            "title":title,
-            "choices": choices,
-            "answer": answer,
-            "script" : script,
-            "image" : image
-        }
-        quiz_id = quizzes.insert_one(quiz).inserted_id
-        author = users.find_one({"_id":user})
-        quiz_set = author['questions']
-        quiz_set.append(quiz_id)
-        users.update(
-            {"_id":user},
-            {"$set" : {"questions":quiz_set}}
-        )
-        user_result = users.find({"_id":user})
-        result = dumps(user_result, default=json_util.default)
-        return jsonify(result=result)
+            "message": "비밀번호가 틀렸습니다."
+            })
+        
 
 
-@app.route('/mongo', methods=['GET'])
-def mongo_fetch():
-    db = mongo.netflix
-    netflix = db.netflix_titles.find()
-    result = dumps(netflix, default=json_util.default)
-    return jsonify(result=result)
-
-
-@app.route('/mongo/kpop', methods=['GET'])
-def mongo_kpop_fetch():
-    db = mongo.kpop
-    girl_grops = db.kpop_idols_girl_groups.find()
-    result = dumps(girl_grops, default=json_util.default)
-    return jsonify(result=result)
-
-
-if __name__ =="__main__":
-    app.config['SESSION_TYPE']='filesystem'
-    app.run(host='0.0.0.0',debug=True)
+app.run(host='0.0.0.0',debug=True)
