@@ -19,5 +19,5 @@ EXPOSE 5000
 #COPY . .
 
 # CMD tail -f /dev/null
-# CMD [ "python3", "app.py" ]
-CMD [ "gunicorn", "--bind", "0.0.0.0:5000", "app:app" ]
+CMD [ "python3", "app.py" ]
+# CMD [ "flask", "run" ]
