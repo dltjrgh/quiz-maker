@@ -13,20 +13,20 @@ import { useHistory } from "react-router-dom";
 // 테두리 만드는 css
 const divBorder = {
   marginBottom: "40px",
-  position: "relation"
+  position: "relation",
 };
 
 // 버튼관련 css
 const btn = {
-    marginTop:"20px",
-    width:"70px", 
-    height:"34px",
-    marginRight:"20px",
-    marginLeft: "20px",
-    backgroundColor:"white",
-    color:"#369",
-    fontWeight:"bold"
-}
+  marginTop: "20px",
+  width: "70px",
+  height: "34px",
+  marginRight: "20px",
+  marginLeft: "20px",
+  backgroundColor: "white",
+  color: "#369",
+  fontWeight: "bold",
+};
 
 const MainPage = (props) => {
   const [quizzes, setQuizzes] = useState([]);
@@ -42,8 +42,9 @@ const MainPage = (props) => {
   const getQuiz = async () => {
     const response = await axios.get(`${USER_SERVER}/api/showquiz`);
     console.log(response);
-    if (response.data.success) setQuizzes(response.data.data.quiz_list);
-    else {
+    if (response.data.success) {
+      setQuizzes(response.data.data.quiz_list);
+    } else {
       alert("로그인이 필요합니다.");
       window.localStorage.setItem("isAuth", "false");
     }
@@ -62,39 +63,38 @@ const MainPage = (props) => {
     setFileImg(imageFile);
   }
 
-    // 모달 여는 함수
-    const openModal = () => {
-        if (window.localStorage.getItem('isAuth')==='true') {
-            setModalOpen(true);
-        } else {
-            alert("로그인을 먼저 해주세요!");
-            setModalOpen(false);
-        }
-        
+  // 모달 여는 함수
+  const openModal = () => {
+    if (window.localStorage.getItem("isAuth") === "true") {
+      setModalOpen(true);
+    } else {
+      alert("로그인을 먼저 해주세요!");
+      setModalOpen(false);
     }
+  };
 
-    // 모달 닫는 함수
-    const closeModal = () => {
-        setModalOpen(false);
-    }
+  // 모달 닫는 함수
+  const closeModal = () => {
+    setModalOpen(false);
+  };
 
-    // 확정 버튼 onClick 함수
-    const decideData = () => {
-        if (window.localStorage.getItem('isAuth')==='true') {
-            alert("확정버튼 누름");
-        } else {
-            alert("로그인 먼저 해주세요!");
-        }
+  // 확정 버튼 onClick 함수
+  const decideData = () => {
+    if (window.localStorage.getItem("isAuth") === "true") {
+      alert("확정버튼 누름");
+    } else {
+      alert("로그인 먼저 해주세요!");
     }
+  };
 
-    // 수정 버튼 onClick 함수
-    const changeData = () => {
-        if (window.localStorage.getItem('isAuth')==='true') {
-            alert("수정버튼 누름");
-        } else {
-            alert("로그인 먼저 해주세요!");
-        }
+  // 수정 버튼 onClick 함수
+  const changeData = () => {
+    if (window.localStorage.getItem("isAuth") === "true") {
+      alert("수정버튼 누름");
+    } else {
+      alert("로그인 먼저 해주세요!");
     }
+  };
 
   //input data
   const columns = useMemo(
@@ -112,7 +112,7 @@ const MainPage = (props) => {
         Header: "참고내용",
       },
       {
-        accessor: "choice1",
+        accessor: `choice1`,
         Header: "선택01",
       },
       {
@@ -139,33 +139,49 @@ const MainPage = (props) => {
         accessor: "score",
         Header: "점수",
       },
+      {
+        Header: "Delete",
+        id: "delete",
+        accessor: (str) => "delete",
+
+        Cell: (tableProps) => {
+          return (
+            <span
+              style={{
+                cursor: "pointer",
+                color: "blue",
+                textDecoration: "underline",
+              }}
+              onClick={() => deleteQuiz(tableProps.row.original._id)}
+            >
+              Delete
+            </span>
+          );
+        },
+      },
     ],
-    []
+    [quizzes]
   );
-  const data = useMemo(
-    () =>
-      Array(31)
-        .fill()
-        .map(() => ({
-          //여기에 db랑 연결하는 코드 각각 작성
-          qid: "0001",
-          title: "다음 중 가장 적절한 것은?",
-          choice1: "1번. 여인을 슬프고 우울해 보이게 그린 것을 보니~",
-          choice2: "2번. 해바라기를 강조한 화면 구성을 보니~~",
-          choice3:
-            "3번. 해바라기의 노란색과 윤각의 빨간색을 대비한 것을 보니~~",
-          choice4:
-            "4번. 해바라기, 꽃병, 배경 등을 화려한 흰 색으로 그린 것을 보니~~",
-          choice5:
-            "5번. 해바라기 꽃병과 여인을 원근법에 어긋나게 그린 것을 보니~~",
-          answer: 1,
-          script: "독일 표현주의 화가인 키르히너의 <해바라기와 여인의 얼굴>은",
-          image:
-            "https://s3.ap-northeast-2.amazonaws.com/event-localnaeil/FileData/Article/202004/56c1b8c3-43e6-466b-8d66-6e56a770206c.jpg",
-          score: "3점",
-        })),
-    []
-  );
+  const data = useMemo(() => {
+    const showed_data = quizzes?.map((quiz) => {
+      let data_return = {
+        _id: quiz._id,
+        qid: "0001",
+        title: quiz.title,
+        answer: quiz.answer,
+        script: quiz.script,
+        image: quiz.image,
+        score: "3점",
+      };
+      /*
+      quiz.choices.map((choice, i) => {
+        data_return[`choice${i + 1}`] = choice;
+      });
+      */
+      return data_return;
+    });
+    return showed_data;
+  }, [quizzes]);
 
   // 전송 버튼 클릭 이벤트
   const sendImage = () => {
@@ -183,11 +199,31 @@ const MainPage = (props) => {
     } catch (e) {
       console.log("error");
     }
+    closeModal();
+    window.location.replace("/");
   };
+
+  // 삭제 버튼 클릭 이벤트
+  const deleteQuiz = async (quiz_id) => {
+    const deletedquiz = { quiz_id: quiz_id };
+    try {
+      const request = await axios
+        .delete(`${USER_SERVER}/api/quizdelete`, { data: deletedquiz })
+        .then((response) => window.location.replace("/"));
+    } catch {
+      console.log("error");
+    }
+  };
+
   //<BlankTop DesktopMargin='100' TabletMargin='3' MobileMargin='1'/>
   return (
     <div
-      style={{ backgroundColor: "#f0f8ff", width: "100vw", height: "100vh" }}
+      style={{
+        backgroundColor: "#f0f8ff",
+        width: "100vw",
+        height: "100vh",
+        marginTop: "80px",
+      }}
     >
       <div className="nav">
         <Header />
@@ -200,13 +236,12 @@ const MainPage = (props) => {
               alt="imgadd"
               onClick={openModal}
               style={{
-                marginTop: "80px",
                 width: "100px",
                 height: "100px",
                 cursor: "pointer",
                 marginLeft: "25px",
                 padding: "0",
-                float: "left"
+                float: "left",
               }}
             />
             <Modal open={modalOpen} close={closeModal}>
@@ -244,25 +279,59 @@ const MainPage = (props) => {
               border: "solid 2px black",
               marginLeft: "auto",
               float: "left",
-              marginTop: "110px"
+              marginTop: "30px",
             }}
           >
             <Table columns={columns} data={data} />
           </div>
-          <div className="confirm" style={{"clear":"both", "textAlign":"center"}}>
-                    <button style={btn} onClick={decideData}>확정</button>
-                    <button style={btn} onClick={changeData}>수정</button>
+          <div
+            className="confirm"
+            style={{ clear: "both", textAlign: "center" }}
+          >
+            <button style={btn} onClick={decideData}>
+              확정
+            </button>
+            <button style={btn} onClick={changeData}>
+              수정
+            </button>
+          </div>
+          <footer
+            style={{
+              backgroundColor: "black",
+              color: "white",
+              height: "30px",
+              width: "100%",
+              position: "fixed",
+              bottom: "0",
+            }}
+          >
+            <div>
+              아이콘 제작자:{" "}
+              <a
+                style={{ textDecoration: "none", color: "white" }}
+                href="https://www.flaticon.com/kr/authors/pixel-perfect"
+                title="Pixel perfect"
+              >
+                Pixel perfect
+              </a>{" "}
+              from{" "}
+              <a
+                style={{ textDecoration: "none", color: "white" }}
+                href="https://www.flaticon.com/kr/"
+                title="Flaticon"
+              >
+                www.flaticon.com
+              </a>
             </div>
-            <footer style={{"backgroundColor":"black", "color":"white", "height":"30px", "width":"100%", "position":"fixed", "bottom":"0"}}>
-                <div>아이콘 제작자: <a style={{"textDecoration": "none", "color":"white"}} href="https://www.flaticon.com/kr/authors/pixel-perfect" title="Pixel perfect">Pixel perfect</a> from <a style={{"text-decoration": "none", "color":"white"}} href="https://www.flaticon.com/kr/" title="Flaticon">www.flaticon.com</a></div>
-            </footer>
+          </footer>
         </div>
       ) : (
-        <div><p>로그인이 필요합니다.</p></div>
+        <div>
+          <p>로그인이 필요합니다.</p>
+        </div>
       )}
     </div>
   );
 };
-
 
 export default MainPage;
