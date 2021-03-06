@@ -4,5 +4,7 @@ venv/
 .DS_Store
 *.pem
 .vscode/
-upload
-.aws/
+upload/
+result/
+s3.py
+*.h5
