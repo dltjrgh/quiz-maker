@@ -11,12 +11,19 @@ RUN apt-get update -y && \
 ENV FLASK_APP=app.py
 ENV FLASK_RUN_HOST=0.0.0.0
 
-
 COPY ./Backend/requirements.txt requirements.txt
 RUN pip3 install -r requirements.txt
 
+#relative with ImportError: libGL.so.1 
+RUN apt-get -y install libgl1-mesa-glx 
+
+# RUN pip3 install imageai --upgrade
+RUN pip3 install pytesseract
+
+ARG DEBIAN_FRONTEND=noninteractive
+RUN apt-get install tesseract-ocr-kor -y
+
 EXPOSE 5000
-#COPY . .
 
 # CMD tail -f /dev/null
 # CMD [ "python3", "app.py" ]
