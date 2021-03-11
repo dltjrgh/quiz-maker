@@ -103,10 +103,12 @@ def get_img(image):
                     if save_crop:
                         crop_path = save_dir / 'crops' / names[c] / f'{p.stem}.jpg'
                         save_one_box(xyxy, imc, file=crop_path, BGR=True)
-                        
+                       
                     if names[c] == "content" or names[c] == "question" : # content로 판별시 이미지 여부 판단 모델 들어가지 않고 이미지 자체를 return 데이터에 담음
-                        
-                        isContent=1
+                        if names[c] == "content": 
+                            isContent=1
+                        else :
+                            isQuestion=1
                         imagefilename ="result/"+ image + "_" + names[c] + "_"+ str(i) + "_" + str(datetime.datetime.now()).replace("\\","/").replace(" ","").replace(":","")+".jpeg"
                         imagefilename.replace(" ","")
                         imagetoupload = open( crop_path , "rb")
@@ -123,6 +125,7 @@ def get_img(image):
                    
 
                     elif names[c] == "answer":
+                       
                         isAnswer=1
                         answerset = LoadImages(crop_path, img_size=imgsz)
                         names2 = model2.module.names if hasattr(model2, 'module') else model2.names
@@ -202,32 +205,51 @@ def get_img(image):
                                                 gap_y=abs(sorted_choice[i][1] - sorted_choice[i+1][1])
                                                 if gap_y < mingap_y:
                                                     mingap_y = gap_y
-                                   
+                                 
+
                                     # choice 탐지 안된 것들 0으로 표기
                                     if n < 5 : 
-                                        
-                                        for i in range (n-1):
+
+                                        #중간이 탐지 안된 경우
+                                        for i in range (n-1): 
                         
                                             if ((abs(sorted_choice[i][1] - sorted_choice[i+1][1]) > mingap_y*2))  :
-                                                
                                                 choice_number[i+1]=0
                                                 n=n+1
+                                                
                                             elif (abs(sorted_choice[i][0] - sorted_choice[i+1][0]) >= mingap_x*2) :
                                                 choice_number[i+1]=0
                                                 n=n+1
-                                        empty = 5 - n
-                                        for i in range(empty) :
-                                             
-                                            if n<5 and (sorted_choice[0][1] > mingap_y) : 
-                                                choice_number[i]=0
-                                                n=n+1
-                                        empty = 5 - n
-                                        for i in range(4, n - empty  ,-1 ) :    
-                                            
-                                            if  n<5 and (sorted_choice[n-1][1] < sorted_choice[0][1]+(mingap_y)*4) : 
-                                                choice_number[i]=0
-                                                n=n+1
-                                  
+                                                
+                                        
+                                        #뭉텅이로 탐지 안된 경우
+                                        if (mingap_y < 10 and mingap_x > 10)  : # x축방향으로 나열된 경우
+                                            empty = 5 - n
+                                            for i in range(empty) :
+                                                if n<5 and (sorted_choice[0][0] > mingap_x) : 
+                                                    choice_number[i]=0
+                                                    n=n+1
+                                                  
+                                            empty = 5 - n
+                                            for i in range(4, n - empty  ,-1 ) :    
+                                                if  n<5 and (sorted_choice[len(det)-1][0] < sorted_choice[0][0]+(mingap_x)*4) : 
+                                                    choice_number[i]=0
+                                                    n=n+1
+                                                   
+                                        if (mingap_x < 10 and mingap_y > 10)  :   # y축방향으로 나열된 경우
+                                            empty = 5 - n
+                                            for i in range(empty) :
+                                                if n<5 and (sorted_choice[0][1] > mingap_y) : 
+                                                    choice_number[i]=0
+                                                    n=n+1
+                                                   
+                                            empty = 5 - n
+                                            for i in range(4, n - empty  ,-1 ) :    
+                                                if  n<5 and (sorted_choice[len(det)-1][1] < sorted_choice[0][1]+(mingap_y)*4) : 
+                                                    choice_number[i]=0
+                                                    n=n+1
+                                                   
+
                                     # Write results
                                     for *xyxy, conf, cls in (det):
                                         
@@ -264,7 +286,8 @@ def get_img(image):
                                 # Save results (image with detections)
                                 if save_img:
                                     if dataset.mode == 'image':
-                                        cv2.imwrite(answer_save_path, im02)
+                                        cv2.imwrite(save_path, im02)
+                                        cv2.imwrite('./result/crops/answer/choicecrop.jpg', im02)
                                         
                        
                     
@@ -272,8 +295,7 @@ def get_img(image):
             if save_img:
                 if dataset.mode == 'image':
                     cv2.imwrite(save_path, im0)
-                    
-
+                   
     # content안에 answer있는 문제의 경우
     if isQuestion == 1 and isContent == 1 and isAnswer == 0 :  
         dict["answer"].append("①")

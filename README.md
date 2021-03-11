@@ -4,46 +4,51 @@
 
 # **✍ QUIZMAKER**
 
-> 본 프로젝트는 'Handshaker' 사업의 일부 프로토타입 제작을 위해 진행되었습니다.
+> 본 프로젝트는 'Handshaker' 사업의 일부 프로토타입 제작을 위해 진행되었습니다.  
+> 💡 해당 페이지 링크: [QUIZMAKER](http://133.186.143.213/)
 
 - 학습지 이미지 데이터에서 문항정보를 추출해 데이터베이스에 저장 후 해당 내용을 사용자의 브라우저에서 접속 가능하도록하는 플랫폼
 
 1️⃣ 학습 문제의 이미지를 업로드 방식으로 등록한다.
 
 <p>
- <img width="700" alt="quizrix_imageupload" src="https://user-images.githubusercontent.com/52441923/126748956-5bf7503e-575a-4008-83e1-9632de129c2c.png">
+ <img width="700" alt="quizmaker_imageupload" src="https://user-images.githubusercontent.com/52441923/127331969-c3697793-e664-43c4-8a53-1d96ebe565f7.PNG">
  </p>
-
+<br>
 2️⃣ 학습지 이미지 데이터에서 딥러닝을 이용하여 문항정보를 추출한다.
 
 <p>
- <img width="700" alt="quizrix_imageupload" src="https://user-images.githubusercontent.com/52441923/126749134-2e804fb4-e62b-4e68-a1aa-4cdc033409c3.png">
+ <img width="700" alt="quizmaker_imageupload" src="https://user-images.githubusercontent.com/52441923/127332101-0407783f-a212-4f6f-a795-204dc318d1e4.PNG">
 </p>
+<br>
+▶ 결과
 
+<p>
+ <img width="700" alt="quizmaker_gif" src="https://user-images.githubusercontent.com/52441923/127335666-f18d0780-faa9-482d-8aa1-4870e295e95c.gif">
+</p>
+     
 <br>
 
-     최종본 gif 추가
-
-## **📌System Architecture**
+## **📌 System Architecture**
 
 <p align="center">  
-  <img src="https://user-images.githubusercontent.com/52441923/126756283-16c5dd0b-8f84-4aab-81f1-b7e4ea4cc171.jpg">
+  <img src="https://user-images.githubusercontent.com/55429156/127281109-0e145109-4bec-4925-9aaf-812a1f58b424.jpg">
 </p>
 
 <br>
 
 ## **🛠 Tech Stack**
-
+[▶ Tech Stack 선정 이유](https://www.notion.so/Tech-stack-c1044876924244cc9de3e8653c130b15)  
 <br>
 
 | 분류          | 기술                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | :------------ | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | 개발환경      | ![NHN](https://img.shields.io/badge/NHN_Cloud_Ubuntu-20.04-blue?logo=ubuntu) ![S3](https://img.shields.io/badge/S3-gray?logo=AmazonS3) ![Docker](https://img.shields.io/badge/docker-gray?logo=docker)                                                                                                                                                                                                                                                                                     |
-| Front-end     | ![react](https://img.shields.io/badge/react-gray?logo=react) ![Javascript](https://img.shields.io/badge/javascript-ES6+-yellow?logo=javascript) ![Bootstrap](https://img.shields.io/badge/bootstrap-gray?logo=bootstrap) ![axios](https://img.shields.io/badge/axios-gray?logo=axios) ![Styled-components](https://img.shields.io/badge/styled_components-gray?logo=styled-components)                                                                                                     |
-| Back-end      | ![Flask](https://img.shields.io/badge/flask-1.1.2-green?logo=flask) ![Python](https://img.shields.io/badge/python-3.7.6-skyblue?logo=python) ![Gunicorn](https://img.shields.io/badge/gunicorn-gray?logo=gunicorn) ![Postman](https://img.shields.io/badge/postman-gray?logo=postman) ![Swagger](https://img.shields.io/badge/swagger-gray?logo=swagger)                                                                                                                                   |
+| [Frontend](frontend/README.md)     | ![react](https://img.shields.io/badge/react-gray?logo=react) ![Javascript](https://img.shields.io/badge/javascript-ES6+-yellow?logo=javascript) ![Bootstrap](https://img.shields.io/badge/bootstrap-gray?logo=bootstrap) ![axios](https://img.shields.io/badge/axios-gray?logo=axios) ![Styled-components](https://img.shields.io/badge/styled_components-gray?logo=styled-components)                                                                                                     |
+| [Backend](backend/README.md)      | ![Flask](https://img.shields.io/badge/flask-1.1.2-green?logo=flask) ![Python](https://img.shields.io/badge/python-3.7.6-skyblue?logo=python) ![Gunicorn](https://img.shields.io/badge/gunicorn-gray?logo=gunicorn) ![Postman](https://img.shields.io/badge/postman-gray?logo=postman) ![Swagger](https://img.shields.io/badge/swagger-gray?logo=swagger)                                                                                                                                   |
 | DB            | ![MongoDB](https://img.shields.io/badge/mongodb-gray?logo=mongodb)                                                                                                                                                                                                                                                                                                                                                                                                                         |
 | Deep learning | ![Pytorch](https://img.shields.io/badge/pytorch-gray?logo=pytorch) ![Colab](https://img.shields.io/badge/colab-gray?logo=GoogleColab) ![Yolov5](https://img.shields.io/badge/yolov5-gray?logo=yolov5)                                                                                                                                                                                                                                                                                      |
-| Etc           | ![Nginx](https://img.shields.io/badge/Nginx-gray?logo=nginx) ![github](https://img.shields.io/badge/github-gray?logo=github) ![VScode](https://img.shields.io/badge/VScode-gray?logo=visual-studio-code) ![AWS](https://img.shields.io/badge/AWS-EC2_instance-orange?logo=aws) ![Prometheus](https://img.shields.io/badge/Prometheus-gray?logo=Prometheus) ![Grafana](https://img.shields.io/badge/Grafana-gray?logo=Grafana) ![Redis](https://img.shields.io/badge/Redis-gray?logo=redis) |
+| Etc           | ![Nginx](https://img.shields.io/badge/Nginx-gray?logo=nginx) ![github](https://img.shields.io/badge/github-gray?logo=github) ![VScode](https://img.shields.io/badge/VScode-gray?logo=visual-studio-code) ![AWS](https://img.shields.io/badge/AWS-EC2_instance-orange?logo=aws) ![Prometheus](https://img.shields.io/badge/Prometheus-gray?logo=Prometheus) ![Grafana](https://img.shields.io/badge/Grafana-gray?logo=Grafana) |
 
 <br>
 
@@ -52,8 +57,8 @@
 | Name             | Port       | Description                                                                                                                                   |
 | ---------------- | ---------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
 | Nginx            | 80         | 가벼움과 높은 성능을 목표로 하는 웹서버로 서버로서의 역할과 프록시로서의 역할을 수행합니다.                                                   |
-| React(on Nginx)  | 80, 3000   | 학습 문제의 이미지를 업로드 방식으로 등록하면, 해당 문제의 문항내용, 보기, 선지를 분류하여 텍스트 및 이미지로 저장할 수 있는 UI를 제공합니다. |
-| Flask + Gunicorn | 8000, 5000 | QUIZRIX의 서버. 모든 행동의 중심에 위치하여 웹서버, Cloud Storage, DB 간의 소통을 담당합니다.                                                 |
+| [React(on Nginx)](frontend/README.md)  | 80, 3000   | 학습 문제의 이미지를 업로드 방식으로 등록하면, 해당 문제의 문항내용, 보기, 선지를 분류하여 텍스트 및 이미지로 저장할 수 있는 UI를 제공합니다. |
+| [Flask + Gunicorn](backend/README.md) | 8000, 5000 | QUIZRIX의 서버. 모든 행동의 중심에 위치하여 웹서버, Cloud Storage, DB 간의 소통을 담당합니다.                                                 |
 | Mongo DB         | 27017      | Database                                                                                                                                      |
 | Grafana          | 3001       | cAdvisor, Prometheus, NodeExporter를 통해 전달받은 시간별 매트릭 데이터를 시각화하여 대시보드로 제공해줍니다.                                 |
 | cAdvisor         | 8080       | 사용중인 도커 컨테이너의 리소스 사용량을 측정하여 시계열 매트릭 데이터화합니다.                                                               |
@@ -62,26 +67,35 @@
 
 <br>
 
-## **🦾 AI**
+## **📑 Swagger**
 
-### ✔flow
+[QUIZMAKER Swagger Hub link](https://app.swaggerhub.com/apis/mandoo/QUIZMAKER/1.0.0)
 
 <p align="center">
-<img alt="flow" src="https://user-images.githubusercontent.com/80239146/126985473-cae4a4f7-6e58-4a26-b7d5-538a32a361d1.PNG">
+<img alt="swagger" src="https://user-images.githubusercontent.com/55429156/127174047-172723ce-e143-4494-bdbb-c94732ef473d.PNG">
 </p>
 
 <br>
+
+## **🦾 AI**
+
+### ✔ flow
+
+<p align="center">
+<img alt="flow" src="https://user-images.githubusercontent.com/52441923/127337947-e350e9cb-ff86-4322-9c1d-df96c9c1af70.PNG">
+</p>
+
 <br>
 
-### ✔결과
+### ✔ 결과
 
 - Model 1
 
-  <img width="532" alt="model1" src="https://user-images.githubusercontent.com/80239146/126751834-81adeca3-36f7-48c4-9ea4-e360042f7551.PNG">
+  <img width="532" alt="model1" src="https://user-images.githubusercontent.com/55429156/127284510-e5d7e958-bb16-4e69-95fc-f0b3f652ebe7.PNG">
 
 - Model 2
 
-  <img width="571" alt="model2" src="https://user-images.githubusercontent.com/80239146/126751880-3cc7c43f-ee20-4f38-a72e-87b80769dfa7.PNG">
+  <img width="571" alt="model2" src="https://user-images.githubusercontent.com/55429156/127285868-5baff6b0-1ed3-41e2-89c7-11fc61d3ee6e.PNG">
 
 <br>
 
@@ -90,69 +104,70 @@
 ```
 📦Mandoo
 ┣ 📂alertmanager
-┃ ┗ 📜config.yml
+┃ ┗ 📜config.yml              // alert manager config file
 ┣ 📂backend
-┃ ┣ 📂models
+┃ ┣ 📂models                  // YOLO v5
 ┃ ┃ ┣ 📂hub
-┃ ┣ 📂utils
+┃ ┣ 📂utils                   // YOLO v5
 ┃ ┃ ┣ 📂aws
 ┃ ┃ ┣ 📂flask_rest_api
 ┃ ┃ ┣ 📂google_app_engine
 ┃ ┃ ┣ 📂wandb_logging
-┃ ┣ 📜Dockerfile
+┃ ┣ 📜Dockerfile              // flask_app container included in docker-compose.yml
 ┃ ┣ 📜README.md
-┃ ┣ 📜app.py
-┃ ┣ 📜choice5_bestweight.pt
-┃ ┣ 📜detection.py
-┃ ┣ 📜development.py
-┃ ┣ 📜kakaoOcr.py
-┃ ┣ 📜modelv2.0.pt
+┃ ┣ 📜app.py                  // Flask server
+┃ ┣ 📜choice5_bestweight.pt   // Pretrained Pytorch weights (answer to 5 choices)
+┃ ┣ 📜detection.py            // Detect input image
+┃ ┣ 📜development.py          // Jwt key, algorithm for development
+┃ ┣ 📜kakaoOcr.py             // extract text
+┃ ┣ 📜modelv2.0.pt            // Pretrained Pytorch weights (image to question/content/answer)
 ┃ ┗ 📜requirements.txt
 ┣ 📂frontend
 ┃ ┣ 📂node_modules
 ┃ ┣ 📂public
 ┃ ┣ 📂src
 ┃ ┃ ┣ 📂components
-┃ ┃ ┃ ┣ 📂Modals
+┃ ┃ ┃ ┣ 📂Modals              // image select modal
 ┃ ┃ ┃ ┃ ┣ 📜Modal.css
 ┃ ┃ ┃ ┃ ┗ 📜Modal.js
-┃ ┃ ┃ ┣ 📜BlankTop.js
-┃ ┃ ┃ ┣ 📜Button.js
+┃ ┃ ┃ ┣ 📜BlankTop.js         // Margin between components
+┃ ┃ ┃ ┣ 📜Button.js           // Button component
 ┃ ┃ ┃ ┣ 📜Header.css
-┃ ┃ ┃ ┣ 📜Header.js
-┃ ┃ ┃ ┣ 📜logo.PNG
-┃ ┃ ┃ ┣ 📜Search.js
-┃ ┃ ┃ ┗ 📜Table.js
+┃ ┃ ┃ ┣ 📜Header.js           // Page Header
+┃ ┃ ┃ ┣ 📜logo.PNG            // Project Logo
+┃ ┃ ┃ ┣ 📜Search.js           // Table Search Function
+┃ ┃ ┃ ┣ 📜Table.js            // Main Page Table
+┃ ┃ ┃ ┗ 📜TableCell.js        // Tabel Cell hover
 ┃ ┃ ┣ 📂pages
-┃ ┃ ┃ ┣ 📜imgIcon.png
-┃ ┃ ┃ ┣ 📜Loader.js
-┃ ┃ ┃ ┣ 📜Login.js
-┃ ┃ ┃ ┣ 📜loginLogo.PNG
-┃ ┃ ┃ ┣ 📜MainPage.js
-┃ ┃ ┃ ┣ 📜noLogin.PNG
-┃ ┃ ┃ ┗ 📜Signup.js
-┃ ┃ ┃ ┣ 📜App.js
+┃ ┃ ┃ ┣ 📜imgIcon.png         // Modal Icon
+┃ ┃ ┃ ┣ 📜Loader.js           // Loading Page
+┃ ┃ ┃ ┣ 📜Login.js            // Login Page
+┃ ┃ ┃ ┣ 📜loginLogo.PNG       // Project Logo
+┃ ┃ ┃ ┣ 📜MainPage.js         // MainPage
+┃ ┃ ┃ ┣ 📜noLogin.PNG         // noLogin Page
+┃ ┃ ┃ ┗ 📜Signup.js           // Signup Page
+┃ ┃ ┃ ┣ 📜App.js              // pages components manage
 ┃ ┃ ┃ ┣ 📜config.js
 ┃ ┃ ┣ 📜index.css
 ┃ ┃ ┗ 📜index.js
-┃ ┣ 📜Dockerfile
-┃ ┗ 📜README.md
+┃ ┣ 📜Dockerfile              // react container included in docker-compose.yml
+┃ ┗ 📜README.md 
 ┣ 📂grafana
 ┃ ┣ 📂provisioning
 ┃ ┃ ┣ 📂dashboards
-┃ ┃ ┃ ┣ 📜dashboard.yml
-┃ ┃ ┃ ┣ 📜Docker Prometheus Monitoring.json
-┃ ┃ ┃ ┗ 📜FlaskApp_Monitoring.json
+┃ ┃ ┃ ┣ 📜dashboard.yml       // dashboard provider config file
+┃ ┃ ┃ ┣ 📜Docker Prometheus Monitoring.json  // monitoring general information
+┃ ┃ ┃ ┗ 📜FlaskApp_Monitoring.json           // monitoring Flask Application API
 ┃ ┃ ┗ 📂datasources
-┃ ┃ ┃ ┗ 📜datasource.yml
+┃ ┃ ┃ ┗ 📜datasource.yml      // admin config file
 ┃ ┗ 📜config.monitoring
 ┣ 📂nginx
-┃ ┗ 📜nginx.conf
+┃ ┗ 📜nginx.conf              // nginx default config file
 ┣ 📂prometheus
-┃ ┣ 📜alert.rules
-┃ ┗ 📜prometheus.yml
+┃ ┣ 📜alert.rules             // alert.rule config file
+┃ ┗ 📜prometheus.yml          // prometheus config file
 ┣ 📜.gitignore
-┣ 📜docker-compose.yml
+┣ 📜docker-compose.yml        // multi container application(Dockerfile) build file
 ┣ 📜LICENSE
 ┣ 📜README.md
 ┗ 📜README_en.md
@@ -204,13 +219,6 @@
   mongo = MongoClient('mongo_db', 27017)
   ```
 
-- detection.py
-
-  ```python
-  #서버 환경에서의 tesseract.exe 경로로 설정
-  pytesseract.pytesseract.tesseract_cmd="/usr/bin/tesseract"
-  ```
-
 - requirements.txt  
   Dockerfile에서 따로 설치하는 라이브러리를 주석처리합니다.
 
@@ -242,13 +250,6 @@ docker-compose up —-build
 
 <br>
 
-## **📑 Swagger**
-[QUIZRIX Swagger Hub link](https://app.swaggerhub.com/apis/mandoo/QUIZRIX/1.0.0)
-<p align="center">
-<img alt="swagger" src="https://user-images.githubusercontent.com/55429156/127174047-172723ce-e143-4494-bdbb-c94732ef473d.PNG">
-</p>
-<br>
-
 ## **🎡 Git Convention**
 
 ### Git-Flow
@@ -270,7 +271,7 @@ docker-compose up —-build
 - feature-user (사용자 관련 기능을 구현하는 feature branch)  
   <br>
 
-### **✔Commit message**
+### **✔ Commit message**
 
 커밋 메세지를 작성할 때는 다음과 같은 규칙으로 일관성 있게 작성합니다.
 
@@ -319,7 +320,7 @@ fix : Fix typo in cleanup.sh file
 - 각 줄은 72자를 넘기지 않습니다.
 - **본문은 꼭 영어로 작성할 필요는 없습니다.**
 
-### **✔git rebase**
+### **✔ git rebase**
 
 원격 저장소에 Pull Request하기 전 프로젝트의 히스토리를 다듬습니다.  
 `rebase` 를 시행하기 전 원격저장소에서 `develop` 브랜치를 `pull` 받아 원격 저장소에 그동안 반영된 커밋을 가져옵니다.
