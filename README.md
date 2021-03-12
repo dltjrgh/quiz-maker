@@ -1,27 +1,25 @@
-한국어 | [English](README_en.md)
-
 <br>
 
 # **✍ QUIZMAKER**
 
-> 본 프로젝트는 'Handshaker' 사업의 일부 프로토타입 제작을 위해 진행되었습니다.  
-> 💡 해당 페이지 링크: [QUIZMAKER](http://133.186.143.213/)
+> This project was carried out for building a prototype for "Handshaker."<br>
+> 💡 Link: [QUIZMAKER](http://133.186.143.213/)
 
-- 학습지 이미지 데이터에서 문항정보를 추출해 데이터베이스에 저장 후 해당 내용을 사용자의 브라우저에서 접속 가능하도록하는 플랫폼
+- QUIZMAKER is a platform with a user-friendly interface designed to upload and view workbook problems via classifying different components of the question from a problem image and saving them to a database.
 
-1️⃣ 학습 문제의 이미지를 업로드 방식으로 등록한다.
+1️⃣ The user uploads the image of the problem.
 
 <p>
  <img width="700" alt="quizmaker_imageupload" src="https://user-images.githubusercontent.com/52441923/127331969-c3697793-e664-43c4-8a53-1d96ebe565f7.PNG">
  </p>
 <br>
-2️⃣ 학습지 이미지 데이터에서 딥러닝을 이용하여 문항정보를 추출한다.
+2️⃣ The components of the problem are classified through a deep-learning model.
 
 <p>
  <img width="700" alt="quizmaker_imageupload" src="https://user-images.githubusercontent.com/52441923/127332101-0407783f-a212-4f6f-a795-204dc318d1e4.PNG">
 </p>
 <br>
-▶ 결과
+▶ Result
 
 <p>
  <img width="700" alt="quizmaker_gif" src="https://user-images.githubusercontent.com/52441923/127335666-f18d0780-faa9-482d-8aa1-4870e295e95c.gif">
@@ -38,34 +36,36 @@
 <br>
 
 ## **🛠 Tech Stack**
-[▶ Tech Stack 선정 이유](https://www.notion.so/Tech-stack-c1044876924244cc9de3e8653c130b15)  
+[▶ Reasons for chosing the following Tech Stack](https://www.notion.so/Tech-stack-c1044876924244cc9de3e8653c130b15)  
 <br>
 
-| 분류          | 기술                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| :------------ | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 개발환경      | ![NHN](https://img.shields.io/badge/NHN_Cloud_Ubuntu-20.04-blue?logo=ubuntu) ![S3](https://img.shields.io/badge/S3-gray?logo=AmazonS3) ![Docker](https://img.shields.io/badge/docker-gray?logo=docker)                                                                                                                                                                                                                                                                                     |
-| [Frontend](frontend/README.md)     | ![react](https://img.shields.io/badge/react-gray?logo=react) ![Javascript](https://img.shields.io/badge/javascript-ES6+-yellow?logo=javascript) ![Bootstrap](https://img.shields.io/badge/bootstrap-gray?logo=bootstrap) ![axios](https://img.shields.io/badge/axios-gray?logo=axios) ![Styled-components](https://img.shields.io/badge/styled_components-gray?logo=styled-components)                                                                                                     |
-| [Backend](backend/README.md)      | ![Flask](https://img.shields.io/badge/flask-1.1.2-green?logo=flask) ![Python](https://img.shields.io/badge/python-3.7.6-skyblue?logo=python) ![Gunicorn](https://img.shields.io/badge/gunicorn-gray?logo=gunicorn) ![Postman](https://img.shields.io/badge/postman-gray?logo=postman) ![Swagger](https://img.shields.io/badge/swagger-gray?logo=swagger)                                                                                                                                   |
-| DB            | ![MongoDB](https://img.shields.io/badge/mongodb-gray?logo=mongodb)                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| Deep learning | ![Pytorch](https://img.shields.io/badge/pytorch-gray?logo=pytorch) ![Colab](https://img.shields.io/badge/colab-gray?logo=GoogleColab) ![Yolov5](https://img.shields.io/badge/yolov5-gray?logo=yolov5)                                                                                                                                                                                                                                                                                      |
-| Etc           | ![Nginx](https://img.shields.io/badge/Nginx-gray?logo=nginx) ![github](https://img.shields.io/badge/github-gray?logo=github) ![VScode](https://img.shields.io/badge/VScode-gray?logo=visual-studio-code) ![AWS](https://img.shields.io/badge/AWS-EC2_instance-orange?logo=aws) ![Prometheus](https://img.shields.io/badge/Prometheus-gray?logo=Prometheus) ![Grafana](https://img.shields.io/badge/Grafana-gray?logo=Grafana) |
+| Category         | Tools/Frameworks                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| :--------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Dev. Environment | ![NHN](https://img.shields.io/badge/NHN_Cloud_Ubuntu-20.04-blue?logo=ubuntu) ![S3](https://img.shields.io/badge/S3-gray?logo=AmazonS3) ![Docker](https://img.shields.io/badge/docker-gray?logo=docker)                                                                                                                                                                                                                                                                                     |
+| Front-end        | ![react](https://img.shields.io/badge/react-gray?logo=react) ![Javascript](https://img.shields.io/badge/javascript-ES6+-yellow?logo=javascript) ![Bootstrap](https://img.shields.io/badge/bootstrap-gray?logo=bootstrap) ![axios](https://img.shields.io/badge/axios-gray?logo=axios) ![Styled-components](https://img.shields.io/badge/styled_components-gray?logo=styled-components)                                                                                                     |
+| Back-end         | ![Flask](https://img.shields.io/badge/flask-1.1.2-green?logo=flask) ![Python](https://img.shields.io/badge/python-3.7.6-skyblue?logo=python) ![Gunicorn](https://img.shields.io/badge/gunicorn-gray?logo=gunicorn) ![Postman](https://img.shields.io/badge/postman-gray?logo=postman) ![Swagger](https://img.shields.io/badge/swagger-gray?logo=swagger)                                                                                                                                   |
+| DB               | ![MongoDB](https://img.shields.io/badge/mongodb-gray?logo=mongodb)                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| Deep learning    | ![Pytorch](https://img.shields.io/badge/pytorch-gray?logo=pytorch) ![Colab](https://img.shields.io/badge/colab-gray?logo=GoogleColab) ![Yolov5](https://img.shields.io/badge/yolov5-gray?logo=yolov5)                                                                                                                                                                                                                                                                                      |
+| Etc              | ![Nginx](https://img.shields.io/badge/Nginx-gray?logo=nginx) ![github](https://img.shields.io/badge/github-gray?logo=github) ![VScode](https://img.shields.io/badge/VScode-gray?logo=visual-studio-code) ![AWS](https://img.shields.io/badge/AWS-EC2_instance-orange?logo=aws) ![Prometheus](https://img.shields.io/badge/Prometheus-gray?logo=Prometheus) ![Grafana](https://img.shields.io/badge/Grafana-gray?logo=Grafana)  |
 
 <br>
 
 ## **🧿 PORTS**
 
-| Name             | Port       | Description                                                                                                                                   |
-| ---------------- | ---------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
-| Nginx            | 80         | 가벼움과 높은 성능을 목표로 하는 웹서버로 서버로서의 역할과 프록시로서의 역할을 수행합니다.                                                   |
-| [React(on Nginx)](frontend/README.md)  | 80, 3000   | 학습 문제의 이미지를 업로드 방식으로 등록하면, 해당 문제의 문항내용, 보기, 선지를 분류하여 텍스트 및 이미지로 저장할 수 있는 UI를 제공합니다. |
-| [Flask + Gunicorn](backend/README.md) | 8000, 5000 | QUIZRIX의 서버. 모든 행동의 중심에 위치하여 웹서버, Cloud Storage, DB 간의 소통을 담당합니다.                                                 |
-| Mongo DB         | 27017      | Database                                                                                                                                      |
-| Grafana          | 3001       | cAdvisor, Prometheus, NodeExporter를 통해 전달받은 시간별 매트릭 데이터를 시각화하여 대시보드로 제공해줍니다.                                 |
-| cAdvisor         | 8080       | 사용중인 도커 컨테이너의 리소스 사용량을 측정하여 시계열 매트릭 데이터화합니다.                                                               |
-| Prometheus       | 9090       | cAdvisor, node exporter의 시계열 매트릭 데이터를 수집하여 시스템 모니터링 및 경고합니다.                                                      |
-| Node Exporter    | 9100       | 서버의 cpu, 메모리, 디스크, 네트워크 사용량등 호스트 관련 매트릭 데이터를 수집하여 api로 노출시킵니다.                                        |
+| Name             | Port       | Description                                                                                           |
+| ---------------- | ---------- | ----------------------------------------------------------------------------------------------------- |
+| Nginx            | 80         | HTTP Server and porxy that is simple but produces high performance.                                   |
+| React(on Nginx)  | 80, 3000   | Provides a UI for uploading, viewing, and saving data provided by the classification model.           |
+| Flask + Gunicorn | 8000, 5000 | It is the main server for QUIZRIX and it connects web, Cloud Storage, and database in the center.     |
+| Mongo DB         | 27017      | Database                                                                                              |
+| Grafana          | 3001       | Provides a visual dashboard from the metrics data provided by cAdvisorm Prometheus, and NodeExporter. |
+| cAdvisor         | 8080       | Measures resource usage by the docker containers and returns it as a time series data.                |
+| Prometheus       | 9090       | Monitors and alerts based on the time series data collected from cAdvisor and NodeExporter            |
+| Node Exporter    | 9100       | Collects host-related data such as, CPU, memory, disk, and network, and reveals it to the API.        |
+
 
 <br>
+
 
 ## **📑 Swagger**
 
@@ -87,7 +87,7 @@
 
 <br>
 
-### ✔ 결과
+### ✔ Results
 
 - Model 1
 
@@ -219,8 +219,9 @@
   mongo = MongoClient('mongo_db', 27017)
   ```
 
+
 - requirements.txt  
-  Dockerfile에서 따로 설치하는 라이브러리를 주석처리합니다.
+  Libraries installed separately by Dockerfile is commented
 
   ```
   # requirements.txt
@@ -250,34 +251,36 @@ docker-compose up —-build
 
 <br>
 
+
+
 ## **🎡 Git Convention**
 
 ### Git-Flow
 
-- master : 제품으로 출시될 수 있는 브랜치
-- develop : 다음 출시 버전을 개발하는 브랜치
-- feature : 기능을 개발하는 브랜치
-- release : 이번 출시 버전을 준비하는 브랜치
-- hotfix : 출시 버전에서 발생한 버그를 수정 하는 브랜치
+- master : Branch for final product version
+- develop : Branch for next version of the product
+- feature : Branch for adding features
+- release : Branch for preparing the release of current version
+- hotfix : Branch for fixing issues in current version
 
 ### Process
 
-- 새로운 기능 개발을 위한 `feature` 브랜치를 생성할 때 브랜치 이름은 다음과 같은 규칙으로 생성합니다.
-- `feature` 브랜치는 마지막 `develop` 브랜치로부터 생성합니다.
-- 꼭 브랜치를 생성하기 전에 `develop` 브랜치를 `pull` 받습니다.
+- The following rules are applied whem creating a `feature` branch for new features.
+- `feature` branch is created from the last `develop` branch.
+- The `develop` branch is `pulled` before creating the new branch.
 
-### Branches 명 example
+### Branches name example
 
-- feature-user (사용자 관련 기능을 구현하는 feature branch)  
+- feature-user (feature branch for user related features)  
   <br>
 
 ### **✔ Commit message**
 
-커밋 메세지를 작성할 때는 다음과 같은 규칙으로 일관성 있게 작성합니다.
+The following rules are applied when creating a commit message.
 
 ### 1. Commit Message Structure
 
-기본적으로 커밋 메세지는 아래와 같이 제목 / 본문 / 꼬리말로 구성합니다.
+Commit messages are typically in title/ content/ footer structure.
 
 ```xml
 type : subject
@@ -288,21 +291,21 @@ body
 
 ### 2. Commit Type
 
-- feat : 새로운 기능 추가
-- fix : 버그 수정, 기능 수정
-- docs : 문서 수정
-- refactor : 코드 리팩토링 (변수명 수정 등)
-- test : 테스트 코드, 리팩토링 테스트 코드 추가
-- style : 코드 스타일 변경, 코드 자체 변경이 없는 경우, 주석 추가
-- remove : 파일 또는 코드, 리소스 제거
-- resource : 이미지 리소스, prefab 등의 코드와 상관없는 리소스 추가
+- feat : add new feature
+- fix : fix features and bugs
+- docs : fix document
+- refactor : refactoring codes (ex. changing variable name)
+- test : test code or adding refactoring codes
+- style : change code styles. Use comment form if the code itself is not changed.
+- remove : remove code file and/or resources
+- resource : adding image resources or other resources unrelated to prefab.
 
 ### 3. Subject
 
-- 제목은 50자를 넘기지 않고, 대문자로 작성하고 마침표를 붙이지 않습니다.
-- 과거시제를 사용하지 않고 명령어로 작성합니다.
+- Keep it less than 50 characters followed by a capital letter. Do not add a period in the end.
+- Do not use past tense and keep it as a command sentence.
 
-예시
+Example:
 
 ```xml
 feat : Add translation to missing strings
@@ -314,42 +317,42 @@ fix : Fix typo in cleanup.sh file
 
 ### 4. Body
 
-- 선택사항이기 때문에 모든 커밋에 본문내용을 작성할 필요는 없습니다.
-- 부연설명이 필요하거나 커밋의 이유를 설명할 경우 작성합니다.
-- 제목과 구분되기 위해 한칸을 띄워 작성합니다.
-- 각 줄은 72자를 넘기지 않습니다.
-- **본문은 꼭 영어로 작성할 필요는 없습니다.**
+- It is optional to include a body and a commit may not include a body.
+- A body is included when explaning the reason for a commit is necessary.
+- Include a space to differentiate from the title.
+- Each line should now exceed 72 characters.
+- **DOES NOT HAVE TO WRITTEN IN ENGLISH**
 
 ### **✔ git rebase**
 
-원격 저장소에 Pull Request하기 전 프로젝트의 히스토리를 다듬습니다.  
-`rebase` 를 시행하기 전 원격저장소에서 `develop` 브랜치를 `pull` 받아 원격 저장소에 그동안 반영된 커밋을 가져옵니다.
+Cleans the project's history beofore requesting a pull from the remote server.
+Before running `rebase`, `pull` from the `develop` branch to apply the commits done in the remote server.
 
 ```bash
 git checkout develop
 git pull
 ```
 
-### 현재 작업중인 feature 브랜치의 커밋을 develop 에 rebase 하기
+### Rebase the currently working feature branch into the develop branch.
 
 ```bash
 git rebase develop feature/feature1
 ```
 
-💡 **주의**
+💡 **Caution**
 
-이미 원격 저장소에 push한 커밋은 절대 rebase하면 안됩니다.
+Do not rebase commits that has already been pushed into the remote server.
 
-Rebase는 기존의 커밋을 그대로 사용하는 것이 아니라 내용은 같지만 다른 커밋을 새로 만듭니다.  
+Rebase creates a new commit with same content, not using the existing commit.
 <br>
 
 ## **👪 Members**
 
-| 이름       | 개발분야                           | 담당                                         | 소개페이지                                         |
-| ---------- | ---------------------------------- | -------------------------------------------- | -------------------------------------------------- |
-| 🦦최윤재   | Front-end, Back-end, Deep learning | Web development,API Design, Data Engineering | [개인 리포로 이동](https://github.com/yunyun3599)  |
-| 🐥이채림   | Front-end, Devops                  | Web development, Docker                      | [개인 리포로 이동](https://github.com/leecr1215)   |
-| 🦩박신영   | Front-end, Deep learning           | Web development, Algorithm                   | [개인 리포로 이동](https://github.com/shxnyoung)   |
-| 🐹이하영   | Back-end, Deep learning            | API Design, Data Engineering                 | [개인 리포로 이동](https://github.com/hayoung1214) |
-| 🦉Ryan Lee | Deep learning                      | Algorithm                                    | [개인 리포로 이동](https://github.com/printSANO)   |
-| 🐢박근우   | Devops                             | Cloud, Docker, Data Monitoring               | [개인 리포로 이동](https://github.com/Gnu-Kenny)   |
+| Name                    | Developement Field                | Skills in Charge                             | Personal Bio                                           |
+| ----------------------- | ---------------------------------- | -------------------------------------------- | ------------------------------------------------------ |
+| 🦦Laura Yoonjae Choi    | Front-end, Back-end, Deep learning | Web development,API Design, Data Engineering | [Move to Personal Bio](https://github.com/yunyun3599)  |
+| 🐥Julia CheLim Lee      | Front-end, Devops                  | Web development, Docker                      | [Move to Personal Bio](https://github.com/leecr1215)   |
+| 🦩Claire ShinYoung Park | Front-end, Deep learning           | Web development, Algorithm                   | [Move to Personal Bio](https://github.com/shxnyoung)   |
+| 🐹Julie Hayoung Lee     | Back-end, Deep learning            | API Design, Data Engineering                 | [Move to Personal Bio](https://github.com/hayoung1214) |
+| 🦉Ryan H. Lee           | Deep learning                      | Algorithm                                    | [Move to Personal Bio](https://github.com/printSANO)   |
+| 🐢Kenny Geunwoo Park    | Devops                             | Cloud, Docker, Data Monitoring               | [Move to Personal Bio](https://github.com/Gnu-Kenny)   |
