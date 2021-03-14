@@ -24,13 +24,13 @@
 
 ### **💡 API** Setup
 
-- .Backend/s3.py
+- .backend/s3.py
 
   ```python
   APPKEY = 'Kakao OCR Rest API URL'
   AWS_ACCESS_KEY = 'AWS ACCESS KEY'
   AWS_SECRET_KEY = 'AWS SECRET KEY'
-  BUCKET_NAME = 'WS S3 Bucket Name'
+  BUCKET_NAME = 'AWS S3 Bucket Name'
   ```
 
 ### **🐳 Docker Compose**
