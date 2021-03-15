@@ -1,4 +1,4 @@
-# **Quiz-maker**
+# **:question:Quiz-maker**
 
 - Quiz-maker is an web application that classifies and digitizes workbook question images using the OCR technology.
 - As the user upload the question image, the components of the question are classified and read through a deep-learning model.
